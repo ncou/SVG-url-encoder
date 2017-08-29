@@ -7,7 +7,7 @@ var resDemo = doc.querySelector( "#demo" );
 
 var expanders = doc.querySelectorAll( ".expander" );
 var expandedClass = "expanded";
-var symbols = /[\r\n"%#()<>?\[\\\]^`{|}]/g;
+var symbols = /[\r\n"%#<>?\[\\\]^`{|}]/g;
 
 // Textarea Actions
 //----------------------------------------
@@ -62,7 +62,7 @@ function encodeSVG( data ) {
     data = data.replace( />\s{1,}</g, "><" );
     data = data.replace( /\s{2,}/g, " " );
 
-    return data.replace( symbols, escape );
+    return data.replace( symbols, encodeURIComponent );
 }
 
 // Common
