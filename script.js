@@ -63,8 +63,10 @@ function encodeSVG( data ) {
         data = data.replace( /"/g, "'" );
     }
 
-    // remove "spaces"
-    //data = data.replace( />\s{1,}</g, "><" );
+    // remove "spaces" between the "><" char
+    data = data.replace( />\s{1,}</g, "><" );
+    
+    // remove multiple "spaces"
     //data = data.replace( /\s{2,}/g, " " );
 
     return data.replace( symbols, encodeURIComponent );
