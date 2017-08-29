@@ -56,6 +56,10 @@ function addNameSpace( data ) {
 function encodeSVG( data ) {
     // Use single quotes instead of double to avoid encoding.
     if ( data.indexOf( '"' ) >= 0 ) {
+        // special case for font-family="'Family with space'"
+    	data = data.replace( /"'/g, "'&apos;" );
+    	data = data.replace( /'"/g, "&apos;'" );
+        
         data = data.replace( /"/g, "'" );
     }
 
